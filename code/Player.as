@@ -2,7 +2,7 @@
 	
 	import flash.display.MovieClip;
 	import flash.geom.Point;
-	
+	import flash.ui.Keyboard;
 	
 	public class Player extends MovieClip {
 				
@@ -19,10 +19,24 @@
 		
 		public function update():void{
 			
-			if(KeyboardInput.keyLeft) velocity.x -= HORIZONTAL_ACCELERATION * dt;
-			if(KeyboardInput.keyRight) velocity.x += HORIZONTAL_ACCELERATION * dt;
+			if(KeyboardInput.OnKeyDown(Keyboard.SPACE){
+				trace("jump");
+			}
+
+			handleWalking();	
+			doPhysics();
+			detectGround();
 			
-			if(!KeyboardInput.keyLeft && !KeyboardInput.keyRight){
+			
+		}//ends update class
+		/**
+		*this function looks at keyboard input in order to accelerate the player left or right 
+		*/
+		private function handleWalking():void{
+			if(KeyboardInput.IsKeyDown(Keyboard.LEFT)) velocity.x -= HORIZONTAL_ACCELERATION * Time.dt;
+			if(KeyboardInput.IsKeyDown(Keyboard.RIGHT)) velocity.x += HORIZONTAL_ACCELERATION * Time.dt;
+			
+			if(!KeyboardInput.IsKeyDown(Keyboard.LEFT) && !KeyboardInput.Keyboard.RIGHT){
 				if(velocity.x < 0){
 					velocity.x += HORIZONTAL_DECELERATION * Time.dt;
 					if(velocity.x > 0) velocity.x = 0;
@@ -33,14 +47,7 @@
 					if(velocity.x < 0) velocity.x = 0;
 				}
 			}
-
-				
-			doPhysics()
-			detectGround();
-			
-			
-		}//ends update class
-		
+		}
 		private function doPhysics():void{
 			
 			//apply gravity to velocity:
@@ -49,7 +56,7 @@
 			
 			//constrain to maxSpeed
 			if(velocity.x > maxSpeed) velocity.x = maxSpeed; // clamp going right
-			if(velocity.x > -maxSpeed> velocity.x = -maxSpeed; // clamp going left
+			if(velocity.x > -maxSpeed) velocity.x = -maxSpeed; // clamp going left
 			
 			//apply velocity to position:
 			x += velocity.x * Time.dt;
