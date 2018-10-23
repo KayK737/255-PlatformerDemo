@@ -54,5 +54,9 @@
 		}
 
 	}
+	//Goal for hw this week is to get the player to jump 
+	//jump higher the longer you hold the space bar
+	//get player to be able to double jump
+	//player can only jump on ground or when they are double jumping 
 	
 }
