@@ -8,6 +8,9 @@
 				
 		private var gravity:Point = new Point(0, 100);
 		private var velocity:Point = new Point(1, 5);
+		private const HORIZONTAL_ACCELERATION:Number = 10;
+		private const HORIZONTAL_DECELERATION:Number = 10;
+		
 		
 		public function Player() {
 
@@ -15,7 +18,22 @@
 		
 		public function update():void{
 			
+			if(KeyboardInput.keyLeft) velocity.x -= HORIZONTAL_ACCELERATION * dt;
+			if(KeyboardInput.keyRight) velocity.x += HORIZONTAL_ACCELERATION * dt;
+			
+			if(!KeyboardInput.keyLeft && !KeyboardInput.keyRight){
+				if(velocity.x < 0){
+					velocity.x += HORIZONTAL_DECELERATION * Time.dt;
+					if(velocity.x > 0) velocity.x = 0;
+					
+				}
+				if(velocity.x > 0){
+					velocity.x -= HORIZONTAL_DECELERATION * Time.dt;
+					if(velocity.x < 0) velocity.x = 0;
+				}
+			}
 
+				
 			doPhysics()
 			detectGround();
 			
