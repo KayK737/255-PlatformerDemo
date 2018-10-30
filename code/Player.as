@@ -8,7 +8,7 @@
 	public class Player extends MovieClip {
 		
 		/*sets gravity */
-		private var gravity:Point = new Point(0,100);
+		private var gravity:Point = new Point(0,200);
 		/*sets max speed of player */
 		private var maxSpeed:Number = 300;
 		/*sets velocity for 2 points */
