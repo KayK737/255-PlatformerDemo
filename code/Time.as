@@ -1,40 +1,40 @@
 ﻿package code {
-	
 	import flash.utils.getTimer;
-	/** the class for handling all game time */
+	
+	/**
+	 * The class for handling all game time.
+	 */
 	public class Time {
 		
 		/**
-		* How much time has passes since prev frame.
-		*/
+		 * How much time has passed since the previous frame. Measured in seconds.
+		 */
 		public static var dt:Number = 0;
 		/**
-		* a scaled version of deltaTime (dt). uses time.scale.
-		*/
+		 * A scaled version of deltaTime (dt). Uses Time.scale. Measured in seconds.
+		 */
 		public static var dtScaled:Number = 0;
 		/**
-		* The current frames timestamp. how many milliseconds have passes since the game started 
-		*/
+		 * The current frame's timestamp. How many milliseconds have passed since the game began.
+		 */
 		public static var time:Number = 0;
-		/** 
-		*a scalar for dtscaled. Use this to create slow-me effects or to pause the game.
-		*/
+		/**
+		 * A scalar for dtScaled. Use this to create slow-mo effects or to pause the game.
+		 */
 		public static var scale:Number = 1;
 		/**
-		*the timestamp of the previous time, measured in milliseconds 
-		*/
+		 * The timestamp of the previous frame, measured in milliseconds.
+		 */
 		private static var timePrev:Number = 0;
-		
 		/**
-		*The method calculates deltaTime. it should be called 
-		*ONCE to get 
-		*/
+		 * This method calculates deltaTime. It should be called
+		 * ONCE per frame, from the game-loop.
+		 */
 		public static function update():void {
-			
 			time = getTimer();
 			dt = (time - timePrev) / 1000;
 			dtScaled = dt * scale;
 			timePrev = time; // cache for next frame
 		}
-	}//ends time class
-}//ends package
+	}
+}
