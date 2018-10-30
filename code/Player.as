@@ -81,7 +81,8 @@
 			/*determins if player is jumping */
 			if(isJumping)
 			{
-				velocity.y -= gravity.y * Time.dt;
+				velocity.y = -100;
+				//velocity.y -= gravity.y * Time.dt;
 			}
 			else
 			{
@@ -98,7 +99,7 @@
 			{
 				isJumping = true;
 				velocity.y -= gravity.y * Time.dt;
-				currentJump = 0;
+				currentJump = y - 100 ;
 				alreadyJumped = true;
 				trace("activate");
 			}
