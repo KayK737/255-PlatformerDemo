@@ -2,6 +2,7 @@
 	
 	import flash.display.MovieClip;
 	import flash.events.Event;
+	import flash.geom.Point;
 	
 	
 	public class Game extends MovieClip {
@@ -22,10 +23,11 @@
 		
 		private function doCollisionDetection():void {
 			
-			if(player.collider.checkOverlap(platform.collider)){
-				platform.alpha = .5;
-			} else {
-				platform.alpha = 1;
+			if(player.collider.checkOverlap(platform.collider)){// if overlapping ...
+				//find the fix:
+				var fix:Point = player.collider.findOverlapFix(platform.collider);
+				//apply the fix:
+				player.applyFix(fix);
 			}
 			
 		}
