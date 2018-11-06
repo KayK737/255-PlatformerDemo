@@ -116,7 +116,7 @@
 				y += fix.y;
 				velocity.y = 0;
 			}
-			if(fix.y < 0){ // we moved the playe up, so they are on the ground
+			if(fix.y < 0){ // we moved the player up, so they are on the ground
 				isGrounded = true;
 				airJumpsLeft = airJumpsMax;
 				
