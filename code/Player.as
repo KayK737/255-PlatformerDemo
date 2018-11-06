@@ -41,7 +41,7 @@
 			//detectGround();
 			
 			collider.calcEdges(x, y);
-			isGrounded = false;	
+			isGrounded = false;	// this allows us to walk off of edges an no longer be "grounded"
 		}
 		/**
 		 * This function looks at the keyboard input in order to accelerate the player
@@ -128,6 +128,7 @@
 				airJumpsLeft = airJumpsMax;
 				
 			}
+			collider.calcEdges(x, y);
 		}
 		
 		

@@ -56,8 +56,8 @@
 			
 			var moveL:Number = other.xmin - this.xmax;
 			var moveR:Number = other.xmax - this.xmin;
-			var moveD:Number = other.ymin - this.ymax;
-			var moveU:Number = other.ymax = this.ymin;
+			var moveU:Number = other.ymin - this.ymax;
+			var moveD:Number = other.ymax - this.ymin;
 			
 			var fix:Point = new Point();
 			

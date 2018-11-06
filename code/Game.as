@@ -6,7 +6,8 @@
 	
 	
 	public class Game extends MovieClip {
-		
+		//multiple levels you must empty array before putting new lvl platforms in 
+		static public var platforms:Array = new Array();
 		
 		public function Game() {
 			KeyboardInput.setup(stage);
@@ -23,14 +24,16 @@
 		
 		private function doCollisionDetection():void {
 			
-			if(player.collider.checkOverlap(platform.collider)){// if overlapping ...
+		for(var i:int = 0; i < platforms.length; i++){
+			if(player.collider.checkOverlap(platforms[i].collider)){// if overlapping ...
 				//find the fix:
-				var fix:Point = player.collider.findOverlapFix(platform.collider);
+				var fix:Point = player.collider.findOverlapFix(platforms[i].collider);
 				//apply the fix:
 				player.applyFix(fix);
 			}
 			
 		}
+	}
 		
 	} // ends Game class
 	
