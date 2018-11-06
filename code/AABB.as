@@ -61,9 +61,6 @@
 			
 			var fix:Point = new Point();
 			
-			if(Math.abs(moveL) < Math.abs(moveR)) fix.x = moveL;
-			else fix.x = moveR;
-			
 			fix.x = (Math.abs(moveL) < Math.abs(moveR)) ? moveL : moveR;
 			
 			fix.y = (Math.abs(moveU) < Math.abs(moveD)) ? moveU : moveD;

@@ -101,17 +101,10 @@
 			x += velocity.x * Time.dt;
 			y += velocity.y * Time.dt;
 		}
-		private function detectGround():void {
-			// look at y position
-			var ground:Number = 350;
-			if(y > ground) {
-				isGrounded = true;
-				airJumpsLeft = airJumpsMax;
-				y = ground; // clamp
-				velocity.y = 0;
-			}
-		}
-		
+		/**
+		* applies the fix that is necessary should 2 objects be colliding 
+		* @param fix The fix that needs to be applied to move the object to the correct spot
+		*/
 		public function applyFix(fix:Point):void {
 			
 			if(fix.x != 0){
